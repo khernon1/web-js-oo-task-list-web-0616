@@ -5,7 +5,7 @@ describe('List Model', function() {
 
     var list;
     beforeEach(function() {
-      emptyArr(List.all); // for deleting instances between tests
+      emptyArr(store.lists); // for deleting instances between tests
       list = new List('Jon\'s List');
     });
     describe('Properties from initialization', function() {
@@ -58,18 +58,18 @@ describe('List Model', function() {
   describe('Constructor Properties', function() {
 
     beforeEach(function() {
-      emptyArr(List.all); // for deleting instances between tests
+      emptyArr(store.lists); // for deleting instances between tests
     });
 
     it('should have an "all" property to hold instances of each list created', function() {
-      expect(List.all).toEqual([]);
+      expect(store.lists).toEqual([]);
     });
 
     it('should keep track of all instances in an all property', function() {
       var list1 = new List('Jon\'s List'),
           list2 = new List('Tristans\'s List');
-      expect(List.all[0]).toBe(list1);
-      expect(List.all[1]).toBe(list2);
+      expect(store.lists[0]).toBe(list1);
+      expect(store.lists[1]).toBe(list2);
     });
 
   }); //end Constructor Properties
